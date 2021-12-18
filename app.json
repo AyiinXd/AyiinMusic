@@ -26,12 +26,12 @@
       "required": true
     },
     "BOT_TOKEN": {
-      "description": "A Bot's token from Botfather",
+      "description": "A Bot's token from Botfather Testing Mode",
       "value": "",
       "required": true
     },
     "DURATION_LIMIT": {
-      "description": "Duration Limit for Playout (In Mins).. Example: 60",
+      "description": "Duration Limit for Playout (In Mins).. Example: 60 ",
       "value": "60",
       "required": true
     },
@@ -41,7 +41,7 @@
       "required": true
     },
     "MONGO_DB_URI": {
-      "description": "Mongo DB URL",
+      "description": "Mongo DB URL only [srv]",
       "value": "",
       "required": true
     },
