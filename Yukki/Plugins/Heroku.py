@@ -15,14 +15,43 @@ from time import time, strftime
 from pyrogram import Client, filters
 
 from config import HEROKU_API_KEY, HEROKU_APP_NAME, UPSTREAM_BRANCH, UPSTREAM_REPO
-from Yukki import app, SUDOERS, LOG_GROUP_ID
+from Yukki import app, SUDOERS, LOG_GROUP_ID, MUSIC_BOT_NAME
 from Yukki.Utilities.heroku import is_heroku, user_input
 from Yukki.Utilities.paste import isPreviewUp, paste_queue
-
+from git.exc import GitCommandError, InvalidGitRepositoryError
+from Yukki.Database import (get_active_chats, remove_active_chat)
 
 from pyrogram.types import Message
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
+
+__MODULE__ = "Heroku"
+__HELP__ = f"""
+
+**Note:**
+**Only for Sudo Users**
+
+/get_log
+- Get log of last 100 lines from Heroku.
+
+/get_var
+- Get a config var from Heroku.
+
+/del_var
+- Delete any var on Heroku.
+
+/set_var [Var Name] [Value]
+- Set a Var or Update a Var on heroku.. Seperate Var and its Value with a space.
+
+/usage
+- Get Dyno Usage.
+
+/update
+- Update Your Bot.
+
+"""
+
 
 
 XCB = [
@@ -147,7 +176,7 @@ async def set_var(client, message):
         return await message.reply_text(" Please make sure your Heroku API Key, Your App name are configured correctly in the heroku")  
     heroku_config = happ.config()
     if to_set in heroku_config:
-        await message.reply_text(f"**Heroku Var Updation:**\n\n{check_var} has been updated successfully. Bot will Restart Now.")
+        await message.reply_text(f"**Heroku Var Updation:**\n\n{to_set} has been updated successfully. Bot will Restart Now.")
     else:
         await message.reply_text(f"Added New Var with name {to_set}. Bot will Restart Now.")   
     heroku_config[to_set] = value
