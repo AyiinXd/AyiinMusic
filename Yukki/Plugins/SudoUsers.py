@@ -42,9 +42,6 @@ Only for Sudo Users.
 /logger [enable / disable]
 - When enabled Bot logs the searched queries in logger group.
 
-/update 
-- Fetch Updates from Server.
-
 /clean
 - Clean Temp Files and Logs.
 """

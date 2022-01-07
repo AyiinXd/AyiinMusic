@@ -13,31 +13,6 @@ from Yukki import (ASS_CLI_1, ASS_CLI_2, ASS_CLI_3, ASS_CLI_4, ASS_CLI_5,
 from Yukki.Database import (approve_pmpermit, disapprove_pmpermit, is_on_off,
                             is_pmpermit_approved)
 
-__MODULE__ = "Assistant"
-__HELP__ = f"""
-
-**Note:**
-- Only for Sudo Users
-
-{ASSISTANT_PREFIX[0]}block [ Reply to a User Message] 
-- Blocks the User from Assistant Account.
-
-{ASSISTANT_PREFIX[0]}unblock [ Reply to a User Message] 
-- Unblocks the User from Assistant Account.
-
-{ASSISTANT_PREFIX[0]}approve [ Reply to a User Message] 
-- Approves the User for DM.
-
-{ASSISTANT_PREFIX[0]}disapprove [ Reply to a User Message] 
-- Disapproves the User for DM.
-
-{ASSISTANT_PREFIX[0]}pfp [ Reply to a Photo] 
-- Changes Assistant account PFP.
-
-{ASSISTANT_PREFIX[0]}bio [Bio text] 
-- Changes Bio of Assistant Account.
-"""
-
 flood = {}
 
 

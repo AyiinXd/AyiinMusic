@@ -15,6 +15,11 @@ from Yukki.Utilities.assistant import get_assistant_details
 __MODULE__ = "Assistant"
 __HELP__ = f"""
 
+
+/checkassistant
+- Check the alloted assistant of your chat
+
+
 **Note:**
 - Only for Sudo Users
 
@@ -35,13 +40,6 @@ __HELP__ = f"""
 
 {ASSISTANT_PREFIX[0]}bio [Bio text] 
 - Changes Bio of Assistant Account.
-
-**Multi-Assistant Help:**
-
-/checkassistant
-- Check the alloted assistant of your chat
-
-** For Sudo Users: **
 
 /changeassistant [ASS NUMBER]
 - Change the previoius alloted assistant to new one.

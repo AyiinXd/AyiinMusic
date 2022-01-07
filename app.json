@@ -116,13 +116,13 @@
       "required": true
     },
     "UPSTREAM_REPO": {
-      "description": "If deploying a Forked Repo, Please put your Forked Repo Link",
-      "value": "https://github.com/Sorrybabe/videotest",
+      "description": "If you dont know this, Leave as it is",
+      "value": "https://github.com/NotReallyShikhar/YukkiMusicBot",
       "required": true
     },
     "UPSTREAM_BRANCH": {
       "description": "Repo's Branch Name",
-      "value": "master",
+      "value": "dev",
       "required": true
     }
   },
