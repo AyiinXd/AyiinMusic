@@ -25,6 +25,14 @@
 </p>
 
 <h2 align="center">
+   Other Branches
+</h2>
+
+<p align="center">
+<a href="https://github.com/NotReallyShikhar/YukkiMusicBot/tree/Multi-Assistant"><img src="https://img.shields.io/badge/MULTI%20ASSISTANT%20MODE-blueviolet?style=for-the-badge" width="250""/</a>
+</p>
+    
+<h2 align="center">
    Requirements
 </h2>
 
@@ -44,15 +52,21 @@
 
 
 <h2 align="center">
-   Install Locally Or On A VPS
+   Install Locally or On a VPS(Debian based)
 </h2>
 
 
 ```console
-shikhar@MacBook~ $ git clone https://github.com/notreallyshikhar/YukkiMusicBot
-shikhar@MacBook~ $ cd YukkiMusicBot
-shikhar@MacBook~ $ pip3 install -U -r requirements.txt
-shikhar@MacBook~ $ cp sample.env .env
+sudo apt-get update && sudo apt-get upgrade -y
+sudo apt-get install python3-pip ffmpeg -y
+sudo pip3 install -U pip
+curl -fssL https://deb.nodesource.com/setup_17.x | sudo -E bash -
+sudo apt-get install nodejs -y
+npm i -g npm
+git clone https://github.com/notreallyshikhar/YukkiMusicBot
+cd YukkiMusicBot
+pip3 install -U -r requirements.txt
+cp sample.env .env
 ```
 
 <h3 align="center">
@@ -60,7 +74,7 @@ shikhar@MacBook~ $ cp sample.env .env
 </h3>
 
 ```console
-shikhar@MacBook~ $ bash start
+bash start
 ```
 ![alt text](https://github.com/notreallyshikhar/YukkiMusicBot/blob/main/Utils/screen.png)
 
@@ -70,7 +84,6 @@ shikhar@MacBook~ $ bash start
 </h2>
 
 <p align="center">
-<a href="https://railway.app/new/template?template=https://github.com/notreallyshikhar/YukkiMusicBot&envs=BOT_TOKEN%2CAPI_ID%2CAPI_HASH%2CSTRING_SESSION%2CSUDO_USERS%2COWNER_ID%2CDURATION_LIMIT%2CSUPPORT_CHANNEL%2CMONGO_DB_URI%2CLOG_GROUP_ID%2CASSISTANT_PREFIX%2CMUSIC_BOT_NAME%2CSUPPORT_GROUP&optionalEnvs=SUPPORT_CHANNEL%2CSUPPORT_GROUP"><img src="https://img.shields.io/badge/Deploy%20To%20Railway-blueviolet?style=for-the-badge&logo=railway" width="252""/</a>
 <a href="https://dashboard.heroku.com/new?template=https://github.com/NotReallyShikhar/YukkiMusicBot"><img src="https://img.shields.io/badge/Deploy%20To%20Heroku-blueviolet?style=for-the-badge&logo=heroku" width="250""/</a>  
 
 </p>
@@ -80,7 +93,7 @@ shikhar@MacBook~ $ bash start
 </h2>
 
 <p align="center">
-<a href="https://replit.com/@AaravxD/VsBSession#main.py"><img src="https://img.shields.io/badge/Generate%20On%20Repl-blueviolet?style=for-the-badge&logo=appveyor" width="245""/></a>
+<a href="https://replit.com/@AaravxD/PyroStringSession#main.py"><img src="https://img.shields.io/badge/Generate%20On%20Repl-blueviolet?style=for-the-badge&logo=appveyor" width="245""/></a>
  </p>  
 
 <h3 align="center">
@@ -88,10 +101,7 @@ shikhar@MacBook~ $ bash start
 </h3>
 
 ```console
-shikhar@MacBook~ $ git clone https://github.com/notreallyshikhar/YukkiMusicBot
-shikhar@MacBook~ $ cd YukkiMusicBot
-shikhar@MacBook~ $ pip3 install pyrogram TgCrypto
-shikhar@MacBook~ $ python3 gen_session.py
+wget https://raw.githubusercontent.com/NotReallyShikhar/YukkiMusicBot/main/gen_session.py && pip3 install pyrogram TgCrypto && python3 gen_session.py
 ```
 
 
