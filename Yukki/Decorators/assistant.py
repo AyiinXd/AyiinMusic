@@ -6,7 +6,7 @@ from pyrogram.errors import UserAlreadyParticipant, UserNotParticipant
 from pyrogram.types import (CallbackQuery, InlineKeyboardButton,
                             InlineKeyboardMarkup, InputMediaPhoto, Message)
 
-from Yukki import BOT_ID, MUSIC_BOT_NAME, app, random_assistant
+from Yukki import BOT_ID, MUSIC_BOT_NAME, app, random_assistant, get_chat_member
 from Yukki.Database import get_assistant, save_assistant
 from Yukki.Utilities.assistant import get_assistant_details
 
@@ -15,7 +15,7 @@ from Yukki.Utilities.assistant import get_assistant_details
 async def unban_assistant_(_, CallbackQuery):
     callback_data = CallbackQuery.data.strip()
     callback_request = callback_data.split(None, 1)[1]
-    query, user_id = callback_request.split("|")
+    query, user_id = callback_request.splpit("|")
     a = await app.get_chat_member(CallbackQuery.message.chat.id, BOT_ID)
     if not a.can_restrict_members:
         return await CallbackQuery.answer(
