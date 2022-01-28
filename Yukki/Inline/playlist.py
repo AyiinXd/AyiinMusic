@@ -6,7 +6,7 @@ def check_markup(user_name, user_id, videoid):
     buttons = [
         [
             InlineKeyboardButton(
-                text=f"Gʀᴏᴜᴘ's Pʟᴀʏʟɪsᴛ​",
+                text=f"Group's Playlist​",
                 callback_data=f"playlist_check {user_id}|Group|{videoid}",
             ),
             InlineKeyboardButton(
@@ -23,7 +23,7 @@ def playlist_markup(user_name, user_id, videoid):
     buttons = [
         [
             InlineKeyboardButton(
-                text=f"Gʀᴏᴜᴘ's Pʟᴀʏʟɪsᴛ​",
+                text=f"Group's Playlist​",
                 callback_data=f"show_genre {user_id}|Group|{videoid}",
             ),
             InlineKeyboardButton(
@@ -128,7 +128,7 @@ def third_playlist_markup(user_name, user_id, third_name, userid, videoid):
     buttons = [
         [
             InlineKeyboardButton(
-                text=f"Gʀᴏᴜᴘ's Pʟᴀʏʟɪsᴛ​",
+                text=f"Group's Playlist​",
                 callback_data=f"show_genre {user_id}|Group|{videoid}",
             ),
             InlineKeyboardButton(
@@ -182,7 +182,7 @@ def delete_playlist_markuup(type, genre):
                 text=f"Yes! Delete",
                 callback_data=f"delete_playlist {type}|{genre}",
             ),
-            InlineKeyboardButton(text="No!", callback_data=f"close"),
+            InlineKeyboardButton(text="•Nᴏ•​", callback_data=f"close"),
         ],
     ]
     return buttons
