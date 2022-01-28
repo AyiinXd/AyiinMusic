@@ -60,7 +60,7 @@ async def gstats(_, message):
         pass
     uptime = await bot_sys_stats()
     response = await message.reply_photo(
-        photo="Utils/Query.jpg", caption="Getting Stats!"
+        photo="Utils/IMG_20220127_230942_584.jpg", caption="Getting Stats!"
     )
     end = datetime.now()
     resp = (end - start).microseconds / 1000
