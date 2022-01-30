@@ -61,6 +61,7 @@ async def awaiting_message(client, message):
 @Client.on_message(
     filters.command("approve", prefixes=ASSISTANT_PREFIX)
     & filters.user(SUDOERS)
+    & ~filters.user("me")
     & ~filters.me
     & ~filters.via_bot
 )
@@ -79,6 +80,7 @@ async def pm_approve(client, message):
 @Client.on_message(
     filters.command("disapprove", prefixes=ASSISTANT_PREFIX)
     & filters.user(SUDOERS)
+    & ~filters.user("me")
     & ~filters.me
     & ~filters.via_bot
 )
@@ -104,6 +106,7 @@ async def pm_disapprove(client, message):
 @Client.on_message(
     filters.command("block", prefixes=ASSISTANT_PREFIX)
     & filters.user(SUDOERS)
+    & ~filters.user("me")
     & ~filters.me
     & ~filters.via_bot
 )
@@ -118,6 +121,7 @@ async def block_user_func(client, message):
 @Client.on_message(
     filters.command("unblock", prefixes=ASSISTANT_PREFIX)
     & filters.user(SUDOERS)
+    & ~filters.user("me")
     & ~filters.me
     & ~filters.via_bot
 )
@@ -134,6 +138,7 @@ async def unblock_user_func(client, message):
 @Client.on_message(
     filters.command("pfp", prefixes=ASSISTANT_PREFIX)
     & filters.user(SUDOERS)
+    & ~filters.user("me")
     & ~filters.me
     & ~filters.via_bot
 )
@@ -151,6 +156,7 @@ async def set_pfp(client, message):
 @Client.on_message(
     filters.command("bio", prefixes=ASSISTANT_PREFIX)
     & filters.user(SUDOERS)
+    & ~filters.user("me")
     & ~filters.me
     & ~filters.via_bot
 )
