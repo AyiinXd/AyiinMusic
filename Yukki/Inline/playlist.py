@@ -6,7 +6,7 @@ def check_markup(user_name, user_id, videoid):
     buttons = [
         [
             InlineKeyboardButton(
-                text=f"Group's Playlist​",
+                text=f"Playlist​",
                 callback_data=f"playlist_check {user_id}|Group|{videoid}",
             ),
             InlineKeyboardButton(
@@ -23,7 +23,7 @@ def playlist_markup(user_name, user_id, videoid):
     buttons = [
         [
             InlineKeyboardButton(
-                text=f"Group's Playlist​",
+                text=f"Playlist​",
                 callback_data=f"show_genre {user_id}|Group|{videoid}",
             ),
             InlineKeyboardButton(
@@ -60,7 +60,7 @@ def play_genre_playlist(user_id, type, videoid):
         ],
         [
             InlineKeyboardButton(
-                text="❮ Gᴏ Bᴀᴄᴋ​",
+                text="•Bᴀᴄᴋ​•",
                 callback_data=f"main_playlist {videoid}|{type}|{user_id}",
             ),
             InlineKeyboardButton(text="•Cʟᴏsᴇ•​", callback_data="close"),
@@ -93,7 +93,7 @@ def add_genre_markup(user_id, type, videoid):
         ],
         [
             InlineKeyboardButton(
-                text="❮ Gᴏ Bᴀᴄᴋ​", callback_data=f"goback {videoid}|{user_id}"
+                text="•Bᴀᴄᴋ​•​", callback_data=f"goback {videoid}|{user_id}"
             ),
             InlineKeyboardButton(text="•Cʟᴏsᴇ•​", callback_data="close"),
         ],
@@ -128,7 +128,7 @@ def third_playlist_markup(user_name, user_id, third_name, userid, videoid):
     buttons = [
         [
             InlineKeyboardButton(
-                text=f"Group's Playlist​",
+                text=f"Playlist​",
                 callback_data=f"show_genre {user_id}|Group|{videoid}",
             ),
             InlineKeyboardButton(
