@@ -190,7 +190,7 @@ def secondary_markup2(videoid, user_id):
             InlineKeyboardButton(text="⏹️", callback_data=f"stopcb"),
         ],
         [
-            InlineKeyboardButton(text="🗑 Close Menu", callback_data=f"close"),
+            InlineKeyboardButton(text="•Cʟᴏsᴇ•", callback_data=f"close"),
         ],
     ]
     return buttons
