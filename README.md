@@ -53,7 +53,7 @@ Read [Docs](https://AyiinXd.gitbook.io/MultiAssistant/deployment/requirements) f
 > Those two vars are not Mandatory! You can leave them blank too. 
     
 <h4>Click the button below to deploy AyiinXd on Heroku!</h4>    
-<p><a href="https://vegetaxd.me/AyiinXd"><img src="https://img.shields.io/badge/Deploy%20To%20Heroku-blueviolet?style=for-the-badge&logo=heroku" width="200""/></a></p>
+<p><a href="https://vegetaxd.me/Yukki"><img src="https://img.shields.io/badge/Deploy%20To%20Heroku-blueviolet?style=for-the-badge&logo=heroku" width="200""/></a></p>
     
 </details>
 
