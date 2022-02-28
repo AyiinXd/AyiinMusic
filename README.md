@@ -62,14 +62,15 @@ A Powerful Telegram Music+Video Bot by which you can stream songs, videos and ev
 
 
 ```console
-ayiin@MacBook~ $ git clone https://github.com/AyiinXd/AyiinMusic
-ayiin@MacBook~ $ cd AyiinMusic
-ayiin@MacBook~ $ pip3 install -U -r requirements.txt
-ayiin@MacBook~ $ cp sample.env .env
+ayiin@ayiin~ $ git clone https://github.com/AyiinXd/AyiinMusic
+ayiin@ayiin~ $ cd AyiinMusic
+ayiin@ayiin~ $ pip3 install -U -r requirements.txt
+ayiin@ayiin~ $ nano sample.env
+ayiin@ayiin~ $ cp sample.env .env
 ```
 > Edit .env with your values and then start bot with
 ```console
-ayiin@MacBook~ $ bash start
+ayiin@ayiin~ $ bash start
 ```
 
 > Not Getting VPS Method? [Watch Tutorial](https://t.me/OfficialYukki/2275)
