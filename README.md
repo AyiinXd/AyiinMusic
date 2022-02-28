@@ -87,7 +87,7 @@ shikhar@MacBook~ $ bash start
 ## Contact & Support
 
 - [Telegram Channel](https://t.me/AyiinSupport)
-- [Telegram Support Group](https://t.me/OfficialAyiinXdSupport)
+- [Telegram Support Group](https://t.me/AyiinXdSupport)
 - [Contact Owner](https://t.me/AyiinXd)
 
 
