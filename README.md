@@ -5,7 +5,6 @@
 </h4>
 <p align="center">
     <a href="https://t.me/YinzRobot"> Ready-To-Use Bot </a> •
-    <a href="https://AyiinXd.gitbook.io/AyiinMusic/about/getting-started"> Documentation </a> •
     <a href="https://t.me/AyiinSupport"> Support Channel </a> •
     <a href="https://t.me/AyiinXdSupport"> Support Chat </a> 
 </p>
@@ -13,8 +12,6 @@
 # Ayiin Music Bot
 A Powerful Telegram Music+Video Bot by which you can stream songs, videos and even live streams in your group calls via various sources. It comes with  user friendly and easy to use yet elegant features.
 
-## Deployment
-Read [Docs](https://AyiinXd.gitbook.io/MultiAssistant/deployment/requirements) for Detailed Description and Setup Guide on deploying Bot.
 
 > Click on buttons to expand!
 <details>
@@ -65,24 +62,18 @@ Read [Docs](https://AyiinXd.gitbook.io/MultiAssistant/deployment/requirements) f
 
 
 ```console
-shikhar@MacBook~ $ git clone https://github.com/AyiinXd/AyiinMusic
-shikhar@MacBook~ $ cd AyiinMusic
-shikhar@MacBook~ $ pip3 install -U -r requirements.txt
-shikhar@MacBook~ $ cp sample.env .env
+ayiin@MacBook~ $ git clone https://github.com/AyiinXd/AyiinMusic
+ayiin@MacBook~ $ cd AyiinMusic
+ayiin@MacBook~ $ pip3 install -U -r requirements.txt
+ayiin@MacBook~ $ cp sample.env .env
 ```
 > Edit .env with your values and then start bot with
 ```console
-shikhar@MacBook~ $ bash start
+ayiin@MacBook~ $ bash start
 ```
 
 > Not Getting VPS Method? [Watch Tutorial](https://t.me/OfficialYukki/2275)
 </details>
-
-## Config Vars
-
-- Checkout All [Available Vars](https://notreallyshikhar.gitbook.io/AyiinMusic/vars/available-vars)
-- Checkout Only [Mandatory Vars](https://notreallyshikhar.gitbook.io/AyiinMusic/vars/mandatory-vars)
-- Checkout Some [Configs](https://notreallyshikhar.gitbook.io/AyiinMusic/setup-config/config)
 
 ## Contact & Support
 
