@@ -1,13 +1,13 @@
 {
-  "name": "MultiAssistant",
+  "name": "AyiinMusic",
   "description": "A Telegram Music Bot with proper functions written in Python with Pyrogram and Py-Tgcalls.",
   "logo": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg",
   "keywords": [
   "python3",
   "telegram",
   "bot",
-  "Yukki",
-  "YukkiMusicBot",
+  "Ayiin",
+  "AyiinMusic",
   "telegram-bot",
   "pyrogram"
   ],
@@ -115,7 +115,7 @@
     },
     "UPSTREAM_REPO": {
       "description": "If you dont know this, Leave as it is",
-      "value": "https://github.com/AyiinXd/MultiAssistant",
+      "value": "https://github.com/AyiinXd/AyiinMusic",
       "required": true
     },
     "UPSTREAM_BRANCH": {

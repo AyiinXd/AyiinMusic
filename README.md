@@ -1,11 +1,11 @@
-<p align="center"><img src="https://github.com/AyiinXd/MultiAssistant/blob/master/Utils/icon.gif" alt="ICON" width="250" height="250"/></p>
+<p align="center"><img src="https://github.com/AyiinXd/AyiinMusic/blob/master/Utils/icon.gif" alt="ICON" width="250" height="250"/></p>
 
 <h4 align="center">
     A Telegram Music+video Bot written in Python using Pyrogram and Py-Tgcalls 
 </h4>
 <p align="center">
     <a href="https://t.me/YinzRobot"> Ready-To-Use Bot </a> •
-    <a href="https://AyiinXd.gitbook.io/MultiAssistant/about/getting-started"> Documentation </a> •
+    <a href="https://AyiinXd.gitbook.io/AyiinMusic/about/getting-started"> Documentation </a> •
     <a href="https://t.me/AyiinSupport"> Support Channel </a> •
     <a href="https://t.me/AyiinXdSupport"> Support Chat </a> 
 </p>
@@ -25,7 +25,7 @@ Read [Docs](https://AyiinXd.gitbook.io/MultiAssistant/deployment/requirements) f
 - [Telegram API Key](https://docs.pyrogram.org/intro/setup#api-keys)
 - [Telegram Bot Token](https://t.me/botfather)
 - [MongoDB URI](https://telegra.ph/How-To-get-Mongodb-URI-04-06)
-- [Pyrogram String Session](https://notreallyshikhar.gitbook.io/yukkimusicbot/deployment/string-session)
+- [Pyrogram String Session](https://notreallyshikhar.gitbook.io/AyiinMusic/deployment/string-session)
     
 </details>
 
@@ -33,11 +33,11 @@ Read [Docs](https://AyiinXd.gitbook.io/MultiAssistant/deployment/requirements) f
 <summary><b>🔗 String Session</b></summary>
 <br>
     
-> You'll need a [API_ID](https://notreallyshikhar.gitbook.io/yukkimusicbot/vars/mandatory-vars#1.-api_id) & [API_HASH](https://notreallyshikhar.gitbook.io/yukkimusicbot/vars/mandatory-vars#2.-api_hash) in order to generate pyrogram session. 
+> You'll need a [API_ID](https://notreallyshikhar.gitbook.io/AyiinMusic/vars/mandatory-vars#1.-api_id) & [API_HASH](https://notreallyshikhar.gitbook.io/AyiinMusic/vars/mandatory-vars#2.-api_hash) in order to generate pyrogram session. 
 > Always remeber to use good API combo else your account could be deleted.
 
 <h4> Generate Session via Repl: </h4>    
-<p><a href="https://replit.com/@AyiinXd/ConnorString"><img src="https://img.shields.io/badge/Generate%20On%20Repl-blueviolet?style=for-the-badge&logo=appveyor" width="200""/></a></p>
+<p><a href="https://replit.com/@AyiinXd/AyiinString"><img src="https://img.shields.io/badge/Generate%20On%20Repl-blueviolet?style=for-the-badge&logo=appveyor" width="200""/></a></p>
 
 <h4> Generate Session via Telegram StringGen Bot: </h4>    
 <p><a href="https://t.me/AyiinStringRobot"><img src="https://img.shields.io/badge/TG%20String%20Gen%20Bot-blueviolet?style=for-the-badge&logo=appveyor" width="200""/></a></p>
@@ -53,7 +53,7 @@ Read [Docs](https://AyiinXd.gitbook.io/MultiAssistant/deployment/requirements) f
 > Those two vars are not Mandatory! You can leave them blank too. 
     
 <h4>Click the button below to deploy AyiinXd on Heroku!</h4>    
-<p><a href="https://vegetaxd.me/Yukki"><img src="https://img.shields.io/badge/Deploy%20To%20Heroku-blueviolet?style=for-the-badge&logo=heroku" width="200""/></a></p>
+<p><a href="https://heroku.com/deploy?template=https://github.com/AyiinXd/AyiinMusic"><img src="https://img.shields.io/badge/Deploy%20To%20Heroku-blueviolet?style=for-the-badge&logo=heroku" width="200""/></a></p>
     
 </details>
 
@@ -61,12 +61,12 @@ Read [Docs](https://AyiinXd.gitbook.io/MultiAssistant/deployment/requirements) f
 <summary><b>🔗 Deploy to VPS</b></summary>
 <br>
 
-> Checkout [Docs](https://notreallyshikhar.gitbook.io/yukkimusicbot/deployment/local-hosting-or-vps) for Detailed Explanation on VPS Deploy
+> Checkout [Docs](https://notreallyshikhar.gitbook.io/AyiinMusic/deployment/local-hosting-or-vps) for Detailed Explanation on VPS Deploy
 
 
 ```console
-shikhar@MacBook~ $ git clone https://github.com/notreallyshikhar/YukkiMusicBot
-shikhar@MacBook~ $ cd YukkiMusicBot
+shikhar@MacBook~ $ git clone https://github.com/AyiinXd/AyiinMusic
+shikhar@MacBook~ $ cd AyiinMusic
 shikhar@MacBook~ $ pip3 install -U -r requirements.txt
 shikhar@MacBook~ $ cp sample.env .env
 ```
@@ -80,27 +80,28 @@ shikhar@MacBook~ $ bash start
 
 ## Config Vars
 
-- Checkout All [Available Vars](https://notreallyshikhar.gitbook.io/yukkimusicbot/vars/available-vars)
-- Checkout Only [Mandatory Vars](https://notreallyshikhar.gitbook.io/yukkimusicbot/vars/mandatory-vars)
-- Checkout Some [Configs](https://notreallyshikhar.gitbook.io/yukkimusicbot/setup-config/config)
+- Checkout All [Available Vars](https://notreallyshikhar.gitbook.io/AyiinMusic/vars/available-vars)
+- Checkout Only [Mandatory Vars](https://notreallyshikhar.gitbook.io/AyiinMusic/vars/mandatory-vars)
+- Checkout Some [Configs](https://notreallyshikhar.gitbook.io/AyiinMusic/setup-config/config)
 
 ## Contact & Support
 
-- [Telegram Channel](https://t.me/OfficialYukki)
-- [Telegram Support Group](https://t.me/OfficialYukkiSupport)
-- [Contact Owner](https://t.me/NotReallyShikhar)
+- [Telegram Channel](https://t.me/AyiinSupport)
+- [Telegram Support Group](https://t.me/OfficialAyiinXdSupport)
+- [Contact Owner](https://t.me/AyiinXd)
 
 
 ## License
 
-Distributed under the [GNU General Public License v3.0 License.](https://github.com/notreallyshikhar/YukkiMusicBot/blob/main/LICENSE) See `LICENSE.md` for more information.
+Distributed under the [GNU General Public License v3.0 License.](https://github.com/AyiinXd/AyiinMusic/blob/main/LICENSE) See `LICENSE.md` for more information.
 
 ## Acknowledgements
 
-Special thanks to these amazing projects/people which/who help power Yukki Music Bot:
+Special thanks to these amazing projects/people which/who help power Ayiin Music Bot:
 
 - [Pyrogram](https://github.com/pyrogram/pyrogram)
 - [Py-Tgcalls](https://github.com/pytgcalls/pytgcalls)
 - [CallsMusic Team](https://github.com/Callsmusic)
 - [TheHamkerCat](https://github.com/TheHamkerCat)
 - [Charon Baglari](https://github.com/XCBv021)
+- [AyiinXd](https://github.com/AyiinXd)
