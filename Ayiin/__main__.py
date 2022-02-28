@@ -214,7 +214,7 @@ async def initiate_bot():
             await LOG_CLIENT.join_chat("AyiinXdSupport")
         except:
             pass
-    console.print(f"└[red] Ayiin Music Boot Completed.")
+    console.print(f"└[red] Ayiin Music Bot Completed.")
     if STRING1 != "None":
         await pytgcalls1.start()
     if STRING2 != "None":
