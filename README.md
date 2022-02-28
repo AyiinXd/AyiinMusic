@@ -70,7 +70,8 @@ ayiin@ayiin~ $ cp sample.env .env
 ```
 > Edit .env with your values and then start bot with
 ```console
-ayiin@ayiin~ $ bash start
+ayiin@ayiin~ $ screen -S AyiinMusic
+ayiin@ayiin~ $ python3 -m Ayiin
 ```
 
 > Not Getting VPS Method? [Watch Tutorial](https://t.me/OfficialYukki/2275)
