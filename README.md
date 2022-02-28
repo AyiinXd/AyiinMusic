@@ -30,7 +30,7 @@ A Powerful Telegram Music+Video Bot by which you can stream songs, videos and ev
 <summary><b>🔗 String Session</b></summary>
 <br>
     
-> You'll need a [API_ID](https://notreallyshikhar.gitbook.io/AyiinMusic/vars/mandatory-vars#1.-api_id) & [API_HASH](https://notreallyshikhar.gitbook.io/AyiinMusic/vars/mandatory-vars#2.-api_hash) in order to generate pyrogram session. 
+> You'll need a [API_ID](https://notreallyshikar.gitbook.io/AyiinMusic/vars/mandatory-vars#1.-api_id) & [API_HASH](https://notreallyshikhar.gitbook.io/AyiinMusic/vars/mandatory-vars#2.-api_hash) in order to generate pyrogram session. 
 > Always remeber to use good API combo else your account could be deleted.
 
 <h4> Generate Session via Repl: </h4>    
