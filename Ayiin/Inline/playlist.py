@@ -3,10 +3,10 @@ from pyrogram.types import (CallbackQuery, InlineKeyboardButton,
 
 
 def check_markup(user_name, user_id, videoid):
-    buttons = [
+    return [
         [
             InlineKeyboardButton(
-                text=f"𝙿𝙻𝙰𝚈𝙻𝙸𝚂𝚃",
+                text="𝙿𝙻𝙰𝚈𝙻𝙸𝚂𝚃",
                 callback_data=f"playlist_check {user_id}|𝙶𝚁𝙾𝚄𝙿|{videoid}",
             ),
             InlineKeyboardButton(
@@ -16,14 +16,13 @@ def check_markup(user_name, user_id, videoid):
         ],
         [InlineKeyboardButton(text="⍟ 𝙲𝙻𝙾𝚂𝙴 ⍟​", callback_data="close")],
     ]
-    return buttons
 
 
 def playlist_markup(user_name, user_id, videoid):
-    buttons = [
+    return [
         [
             InlineKeyboardButton(
-                text=f"𝙿𝙻𝙰𝚈𝙻𝙸𝚂𝚃​",
+                text="𝙿𝙻𝙰𝚈𝙻𝙸𝚂𝚃\u200b",
                 callback_data=f"show_genre {user_id}|𝙶𝚁𝙾𝚄𝙿|{videoid}",
             ),
             InlineKeyboardButton(
@@ -33,28 +32,27 @@ def playlist_markup(user_name, user_id, videoid):
         ],
         [InlineKeyboardButton(text="⍟ 𝙲𝙻𝙾𝚂𝙴 ⍟​", callback_data="close")],
     ]
-    return buttons
 
 
 def play_genre_playlist(user_id, type, videoid):
-    buttons = [
+    return [
         [
             InlineKeyboardButton(
-                text=f"𝙳𝙹",
+                text="𝙳𝙹",
                 callback_data=f"play_playlist {user_id}|{type}|𝙱𝙾𝙻𝙻𝚈𝚆𝙾𝙾𝙳",
             ),
             InlineKeyboardButton(
-                text=f"𝚂𝙻𝙴𝙴𝙿",
+                text="𝚂𝙻𝙴𝙴𝙿",
                 callback_data=f"play_playlist {user_id}|{type}|𝙷𝙾𝙻𝙻𝚈𝚆𝙾𝙾𝙳",
             ),
         ],
         [
             InlineKeyboardButton(
-                text=f"𝚂𝙰𝙳",
+                text="𝚂𝙰𝙳",
                 callback_data=f"play_playlist {user_id}|{type}|𝙿𝙰𝚁𝚃𝚈",
             ),
             InlineKeyboardButton(
-                text=f"𝙿𝙰𝚁𝚃𝚈",
+                text="𝙿𝙰𝚁𝚃𝚈",
                 callback_data=f"play_playlist {user_id}|{type}|𝙻𝙾𝙵𝙸",
             ),
         ],
@@ -66,28 +64,27 @@ def play_genre_playlist(user_id, type, videoid):
             InlineKeyboardButton(text="⍟ 𝙲𝙻𝙾𝚂𝙴 ⍟​", callback_data="close"),
         ],
     ]
-    return buttons
 
 
 def add_genre_markup(user_id, type, videoid):
-    buttons = [
+    return [
         [
             InlineKeyboardButton(
-                text=f"✚ 𝙳𝙹",
+                text="✚ 𝙳𝙹",
                 callback_data=f"add_playlist {videoid}|{type}|𝚆𝙴𝙴𝙱",
             ),
             InlineKeyboardButton(
-                text=f"✚ 𝙿𝙰𝚁𝚃𝚈",
+                text="✚ 𝙿𝙰𝚁𝚃𝚈",
                 callback_data=f"add_playlist {videoid}|{type}|𝚂𝙰𝙳",
             ),
         ],
         [
             InlineKeyboardButton(
-                text=f"✚ 𝚂𝙰𝙳",
+                text="✚ 𝚂𝙰𝙳",
                 callback_data=f"add_playlist {videoid}|{type}|𝙿𝙰𝚁𝚃𝚈",
             ),
             InlineKeyboardButton(
-                text=f"✚ 𝚂𝙻𝙴𝙴𝙿",
+                text="✚ 𝚂𝙻𝙴𝙴𝙿",
                 callback_data=f"add_playlist {videoid}|{type}|𝙻𝙾𝙵𝙸",
             ),
         ],
@@ -98,37 +95,35 @@ def add_genre_markup(user_id, type, videoid):
             InlineKeyboardButton(text="⍟ 𝙲𝙻𝙾𝚂𝙴 ⍟", callback_data="close"),
         ],
     ]
-    return buttons
 
 
 def check_genre_markup(type, videoid, user_id):
-    buttons = [
+    return [
         [
             InlineKeyboardButton(
-                text=f"𝙳𝙹", callback_data=f"check_playlist {type}|𝚆𝙴𝙴𝙱"
+                text="𝙳𝙹", callback_data=f"check_playlist {type}|𝚆𝙴𝙴𝙱"
             ),
             InlineKeyboardButton(
-                text=f"𝙿𝙰𝚁𝚃𝚈", callback_data=f"check_playlist {type}|𝚂𝙰𝙳"
+                text="𝙿𝙰𝚁𝚃𝚈", callback_data=f"check_playlist {type}|𝚂𝙰𝙳"
             ),
         ],
         [
             InlineKeyboardButton(
-                text=f"𝚂𝙰𝙳", callback_data=f"check_playlist {type}|𝙿𝙰𝚁𝚃𝚈"
+                text="𝚂𝙰𝙳", callback_data=f"check_playlist {type}|𝙿𝙰𝚁𝚃𝚈"
             ),
             InlineKeyboardButton(
-                text=f"𝚂𝙻𝙴𝙴𝙿", callback_data=f"check_playlist {type}|𝙻𝙾𝙵𝙸"
+                text="𝚂𝙻𝙴𝙴𝙿", callback_data=f"check_playlist {type}|𝙻𝙾𝙵𝙸"
             ),
         ],
         [InlineKeyboardButton(text="⍟ 𝙲𝙻𝙾𝚂𝙴 ⍟​", callback_data="close")],
     ]
-    return buttons
 
 
 def third_playlist_markup(user_name, user_id, third_name, userid, videoid):
-    buttons = [
+    return [
         [
             InlineKeyboardButton(
-                text=f"𝙿𝙻𝙰𝚈𝙻𝙸𝚂𝚃​",
+                text="𝙿𝙻𝙰𝚈𝙻𝙸𝚂𝚃\u200b",
                 callback_data=f"show_genre {user_id}|Group|{videoid}",
             ),
             InlineKeyboardButton(
@@ -144,25 +139,23 @@ def third_playlist_markup(user_name, user_id, third_name, userid, videoid):
         ],
         [InlineKeyboardButton(text="⍟ 𝙲𝙻𝙾𝚂𝙴 ⍟​", callback_data="close")],
     ]
-    return buttons
 
 
 def paste_queue_markup(url):
-    buttons = [
+    return [
         [
-            InlineKeyboardButton(text="▶️", callback_data=f"resumecb"),
-            InlineKeyboardButton(text="⏸️", callback_data=f"pausecb"),
-            InlineKeyboardButton(text="⏭️", callback_data=f"skipcb"),
-            InlineKeyboardButton(text="⏹️", callback_data=f"stopcb"),
+            InlineKeyboardButton(text="▶️", callback_data="resumecb"),
+            InlineKeyboardButton(text="⏸️", callback_data="pausecb"),
+            InlineKeyboardButton(text="⏭️", callback_data="skipcb"),
+            InlineKeyboardButton(text="⏹️", callback_data="stopcb"),
         ],
         [InlineKeyboardButton(text="𝙲𝙷𝙴𝙲𝙺𝙾𝚄𝚃 𝚀𝚄𝙴𝚄𝙴𝙳 𝙿𝙻𝙰𝚈𝙻𝙸𝚂𝚃", url=f"{url}")],
-        [InlineKeyboardButton(text="⍟ 𝙲𝙻𝙾𝚂𝙴 ⍟​", callback_data=f"close")],
+        [InlineKeyboardButton(text="⍟ 𝙲𝙻𝙾𝚂𝙴 ⍟​", callback_data="close")],
     ]
-    return buttons
 
 
 def fetch_playlist(user_name, type, genre, user_id, url):
-    buttons = [
+    return [
         [
             InlineKeyboardButton(
                 text=f"𝙿𝙻𝙰𝚈 {user_name[:10]}'s {genre} 𝙿𝙻𝙰𝚈𝙻𝙸𝚂𝚃",
@@ -170,19 +163,17 @@ def fetch_playlist(user_name, type, genre, user_id, url):
             ),
         ],
         [InlineKeyboardButton(text="𝙲𝙷𝙴𝙲𝙺𝙾𝚄𝚃 𝙿𝙻𝙰𝚈𝙻𝙸𝚂𝚃", url=f"{url}")],
-        [InlineKeyboardButton(text="⍟ 𝙲𝙻𝙾𝚂𝙴 ⍟​", callback_data=f"close")],
+        [InlineKeyboardButton(text="⍟ 𝙲𝙻𝙾𝚂𝙴 ⍟​", callback_data="close")],
     ]
-    return buttons
 
 
 def delete_playlist_markuup(type, genre):
-    buttons = [
+    return [
         [
             InlineKeyboardButton(
-                text=f"𝚈𝙴𝚂 𝙳𝙴𝙻𝙴𝚃𝙴!",
+                text="𝚈𝙴𝚂 𝙳𝙴𝙻𝙴𝚃𝙴!",
                 callback_data=f"delete_playlist {type}|{genre}",
             ),
-            InlineKeyboardButton(text="⍟ 𝙽𝙾 ⍟​", callback_data=f"close"),
-        ],
+            InlineKeyboardButton(text="⍟ 𝙽𝙾 ⍟​", callback_data="close"),
+        ]
     ]
-    return buttons

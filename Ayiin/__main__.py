@@ -33,8 +33,8 @@ HELPABLE = {}
 
 async def initiate_bot():
     with console.status(
-        "[magenta] Finalizing Booting...",
-    ) as status:
+            "[magenta] Finalizing Booting...",
+        ) as status:
         try:
             chats = await get_active_video_chats()
             for chat in chats:
@@ -59,9 +59,7 @@ async def initiate_bot():
             spinner_style="yellow",
         )
         for all_module in ALL_MODULES:
-            imported_module = importlib.import_module(
-                "Ayiin.Plugins." + all_module
-            )
+            imported_module = importlib.import_module(f"Ayiin.Plugins.{all_module}")
             if (
                 hasattr(imported_module, "__MODULE__")
                 and imported_module.__MODULE__
@@ -93,12 +91,12 @@ async def initiate_bot():
         print(
             "\nBot has failed to access the log Channel. Make sure that you have added your bot to your log channel and promoted as admin!"
         )
-        console.print(f"\n[red]Stopping Bot")
+        console.print("\\n[red]Stopping Bot")
         return
     a = await app.get_chat_member(LOG_GROUP_ID, BOT_ID)
     if a.status != "administrator":
         print("Promote Bot as Admin in Logger Channel")
-        console.print(f"\n[red]Stopping Bot")
+        console.print("\\n[red]Stopping Bot")
         return
     console.print(f"\n┌[red] Bot Started as {BOT_NAME}!")
     console.print(f"├[green] ID :- {BOT_ID}!")
@@ -112,7 +110,7 @@ async def initiate_bot():
             print(
                 "\nAssistant Account 1 has failed to access the log Channel. Make sure that you have added your Assistant to your log channel and promoted as admin!"
             )
-            console.print(f"\n[red]Stopping Bot")
+            console.print("\\n[red]Stopping Bot")
             return
         try:
             await ASS_CLI_1.join_chat("AyiinSupport")
@@ -131,7 +129,7 @@ async def initiate_bot():
             print(
                 "\nAssistant Account 2 has failed to access the log Channel. Make sure that you have added your Assistant to your log channel and promoted as admin!"
             )
-            console.print(f"\n[red]Stopping Bot")
+            console.print("\\n[red]Stopping Bot")
             return
         try:
             await ASS_CLI_2.join_chat("AyiinSupport")
@@ -150,7 +148,7 @@ async def initiate_bot():
             print(
                 "\nAssistant Account 3 has failed to access the log Channel. Make sure that you have added your Assistant to your log channel and promoted as admin!"
             )
-            console.print(f"\n[red]Stopping Bot")
+            console.print("\\n[red]Stopping Bot")
             return
         try:
             await ASS_CLI_3.join_chat("AyiinSupport")
@@ -169,7 +167,7 @@ async def initiate_bot():
             print(
                 "\nAssistant Account 4 has failed to access the log Channel. Make sure that you have added your Assistant to your log channel and promoted as admin!"
             )
-            console.print(f"\n[red]Stopping Bot")
+            console.print("\\n[red]Stopping Bot")
             return
         try:
             await ASS_CLI_4.join_chat("AyiinSupport")
@@ -188,7 +186,7 @@ async def initiate_bot():
             print(
                 "\nAssistant Account 5 has failed to access the log Channel. Make sure that you have added your Assistant to your log channel and promoted as admin!"
             )
-            console.print(f"\n[red]Stopping Bot")
+            console.print("\\n[red]Stopping Bot")
             return
         try:
             await ASS_CLI_5.join_chat("AyiinSupport")
@@ -207,14 +205,14 @@ async def initiate_bot():
             print(
                 "\nLogger Client has failed to access the log Channel. Make sure that you have added your Logger Account to your log channel and promoted as admin!"
             )
-            console.print(f"\n[red]Stopping Bot")
+            console.print("\\n[red]Stopping Bot")
             return
         try:
             await LOG_CLIENT.join_chat("AyiinSupport")
             await LOG_CLIENT.join_chat("AyiinXdSupport")
         except:
             pass
-    console.print(f"└[red] Ayiin Music Bot Completed.")
+    console.print("└[red] Ayiin Music Bot Completed.")
     if STRING1 != "None":
         await pytgcalls1.start()
     if STRING2 != "None":
@@ -226,7 +224,7 @@ async def initiate_bot():
     if STRING5 != "None":
         await pytgcalls5.start()
     await idle()
-    console.print(f"\n[red]Stopping Bot")
+    console.print("\\n[red]Stopping Bot")
 
 
 home_text_pm = f"""Hello ,

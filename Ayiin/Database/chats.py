@@ -10,8 +10,7 @@ async def get_served_chats() -> list:
     if not chats:
         return []
     chats_list = []
-    for chat in await chats.to_list(length=1000000000):
-        chats_list.append(chat)
+    chats_list.extend(iter(await chats.to_list(length=1000000000)))
     return chats_list
 
 

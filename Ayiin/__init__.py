@@ -105,8 +105,8 @@ async def initiate_bot():
     )
     console.print(header)
     with console.status(
-        "[magenta] Ayiin Music Booting...",
-    ) as status:
+            "[magenta] Ayiin Music Booting...",
+        ) as status:
         console.print("┌ [red]Booting Up The Clients...\n")
         await app.start()
         console.print("└ [green]Booted Bot Client")
@@ -148,7 +148,7 @@ async def initiate_bot():
         getme = await app.get_me()
         BOT_ID = getme.id
         if getme.last_name:
-            BOT_NAME = getme.first_name + " " + getme.last_name
+            BOT_NAME = f'{getme.first_name} {getme.last_name}'
         else:
             BOT_NAME = getme.first_name
         BOT_USERNAME = getme.username

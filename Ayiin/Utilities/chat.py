@@ -24,8 +24,7 @@ async def specialfont_to_normal(ctitle):
     font31L = list("𝚊𝚋𝚌𝚍𝚎𝚏𝚐𝚑𝚒𝚓𝚔𝚕𝚖𝚗𝚘𝚙𝚚𝚛𝚜𝚝𝚞𝚟𝚠𝚡𝚢𝚣")
     normal = list("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
     normalL = list("abcdefghijklmnopqrstuvwxyz")
-    cout = 0
-    for XCB in font1:
+    for cout, XCB in enumerate(font1):
         string = string.replace(font1[cout], normal[cout])
         string = string.replace(font2[cout], normal[cout])
         string = string.replace(font3[cout], normal[cout])
@@ -48,5 +47,4 @@ async def specialfont_to_normal(ctitle):
         string = string.replace(font29L[cout], normalL[cout])
         string = string.replace(font30L[cout], normalL[cout])
         string = string.replace(font31L[cout], normalL[cout])
-        cout += 1
     return string

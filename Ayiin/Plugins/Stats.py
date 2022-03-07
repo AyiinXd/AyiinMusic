@@ -43,12 +43,11 @@ async def bot_sys_stats():
     cpu = psutil.cpu_percent(interval=0.5)
     mem = psutil.virtual_memory().percent
     disk = psutil.disk_usage("/").percent
-    stats = f"""
+    return f"""
 **Uptime:** {get_readable_time((bot_uptime))}
 **CPU:** {cpu}%
 **RAM:** {mem}%
 **Disk: **{disk}%"""
-    return stats
 
 
 @app.on_message(filters.command("stats") & ~filters.edited)
@@ -100,9 +99,7 @@ async def stats_markup(_, CallbackQuery):
             cupc += f"Core {i}  : {percentage}%\n"
         cupc += "**Total CPU Usage:**\n"
         cupc += f"All Cores Usage: {psutil.cpu_percent()}%\n"
-        ram = (
-            str(round(psutil.virtual_memory().total / (1024.0 ** 3))) + " GB"
-        )
+        ram = f'{str(round(psutil.virtual_memory().total / (1024.0 ** 3)))} GB'
         bot_uptime = int(time.time() - boottime)
         uptime = f"{get_readable_time((bot_uptime))}"
         smex = f"""
@@ -146,10 +143,8 @@ async def stats_markup(_, CallbackQuery):
         await CallbackQuery.edit_message_text(smex, reply_markup=stats3)
     if command == "bot_stats":
         await CallbackQuery.answer("Getting Bot Stats...", show_alert=True)
-        served_chats = []
         chats = await get_served_chats()
-        for chat in chats:
-            served_chats.append(int(chat["chat_id"]))
+        served_chats = [int(chat["chat_id"]) for chat in chats]
         blocked = await get_gbans_count()
         sudoers = await get_sudoers()
         modules_loaded = len(ALL_MODULES)

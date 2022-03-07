@@ -63,10 +63,7 @@ async def settheme(_, message):
 async def theme_func(_, message):
     await message.delete()
     _note = await get_theme(message.chat.id, "theme")
-    if not _note:
-        theme = "Random"
-    else:
-        theme = _note["theme"]
+    theme = "Random" if not _note else _note["theme"]
     await message.reply_text(
         f"**{MUSIC_BOT_NAME} Thumbnails Theme**\n\n**Current Theme:-** {theme}\n\n**Available Themes:-** {' | '.join(themes2)} \n\nUse /settheme to change theme."
     )

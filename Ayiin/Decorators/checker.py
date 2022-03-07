@@ -14,11 +14,11 @@ def checker(mystic):
                 f"**Blacklisted Chat**\n\nYour chat has been blacklisted by Sudo Users.Ask any __SUDO USER__ to whitelist.\nCheck Sudo Users List [From Here](https://t.me/{BOT_USERNAME}?start=sudolist)"
             )
             return await app.leave_chat(message.chat.id)
-        if await is_on_off(1):
-            if int(message.chat.id) != int(LOG_GROUP_ID):
-                return await message.reply_text(
-                    f"Bot is under Maintenance. Sorry for the inconvenience!"
-                )
+        if await is_on_off(1) and int(message.chat.id) != int(LOG_GROUP_ID):
+            return await message.reply_text(
+                "Bot is under Maintenance. Sorry for the inconvenience!"
+            )
+
         if await is_gbanned_user(message.from_user.id):
             return await message.reply_text(
                 f"**Gbanned User**\n\nYou're gbanned from using Bot.Ask any __SUDO USER__ to ungban.\nCheck Sudo Users List [From Here](https://t.me/{BOT_USERNAME}?start=sudolist)"
@@ -35,12 +35,13 @@ def checkerCB(mystic):
             return await CallbackQuery.answer(
                 "Blacklisted Chat", show_alert=True
             )
-        if await is_on_off(1):
-            if int(CallbackQuery.message.chat.id) != int(LOG_GROUP_ID):
-                return await CallbackQuery.answer(
-                    "Bot is under Maintenance. Sorry for the inconvenience!",
-                    show_alert=True,
-                )
+        if await is_on_off(1) and int(CallbackQuery.message.chat.id) != int(
+            LOG_GROUP_ID
+        ):
+            return await CallbackQuery.answer(
+                "Bot is under Maintenance. Sorry for the inconvenience!",
+                show_alert=True,
+            )
         if await is_gbanned_user(CallbackQuery.from_user.id):
             return await CallbackQuery.answer(
                 "You're Gbanned", show_alert=True

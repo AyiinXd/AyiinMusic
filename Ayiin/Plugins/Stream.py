@@ -33,18 +33,7 @@ from Ayiin.Utilities.youtube import (get_m3u8, get_yt_info_id,
 loop = asyncio.get_event_loop()
 
 __MODULE__ = "VideoCalls"
-__HELP__ = f"""
-
-/play [Reply to any Video] or [YT Link] or [Music Name]
-- Stream Video on Voice Chat
-
-**For Sudo User:-**
-
-/set_video_limit [Number of Chats]
-- Set a maximum Number of Chats allowed for Video Calls at a time.
-
-
-"""
+__HELP__ = """\x1f\x1f/play [Reply to any Video] or [YT Link] or [Music Name]\x1f- Stream Video on Voice Chat\x1f\x1f**For Sudo User:-**\x1f\x1f/set_video_limit [Number of Chats]\x1f- Set a maximum Number of Chats allowed for Video Calls at a time.\x1f\x1f\x1f"""
 
 
 @app.on_callback_query(filters.regex(pattern=r"Ayiin"))
@@ -72,14 +61,13 @@ async def quality_markup(_, CallbackQuery):
             "**No Limit Defined for Video Calls**\n\nSet a Limit for Number of Maximum Video Calls allowed on Bot by /set_video_limit [Sudo Users Only]"
         )
     count = len(await get_active_video_chats())
-    if int(count) == int(limit):
-        if await is_active_video_chat(CallbackQuery.message.chat.id):
-            pass
-        else:
-            return await CallbackQuery.answer(
-                "Sorry! Bot only allows limited number of video calls due to CPU overload issues. Other chats are using video call right now. Try switching to audio or try again later",
-                show_alert=True,
-            )
+    if int(count) == int(limit) and not await is_active_video_chat(
+        CallbackQuery.message.chat.id
+    ):
+        return await CallbackQuery.answer(
+            "Sorry! Bot only allows limited number of video calls due to CPU overload issues. Other chats are using video call right now. Try switching to audio or try again later",
+            show_alert=True,
+        )
     if CallbackQuery.message.chat.id not in db_mem:
         db_mem[CallbackQuery.message.chat.id] = {}
     try:
@@ -89,8 +77,6 @@ async def quality_markup(_, CallbackQuery):
                 "Live Streaming Playing...Stop it to play music",
                 show_alert=True,
             )
-        else:
-            pass
     except:
         pass
     await CallbackQuery.answer()
@@ -116,14 +102,13 @@ async def Live_Videos_Stream(_, CallbackQuery):
             "**No Limit Defined for Video Calls**\n\nSet a Limit for Number of Maximum Video Calls allowed on Bot by /set_video_limit [Sudo Users Only]"
         )
     count = len(await get_active_video_chats())
-    if int(count) == int(limit):
-        if await is_active_video_chat(CallbackQuery.message.chat.id):
-            pass
-        else:
-            return await CallbackQuery.answer(
-                "Sorry! Bot only allows limited number of video calls due to CPU overload issues. Other chats are using video call right now. Try switching to audio or try again later",
-                show_alert=True,
-            )
+    if int(count) == int(limit) and not await is_active_video_chat(
+        CallbackQuery.message.chat.id
+    ):
+        return await CallbackQuery.answer(
+            "Sorry! Bot only allows limited number of video calls due to CPU overload issues. Other chats are using video call right now. Try switching to audio or try again later",
+            show_alert=True,
+        )
     if CallbackQuery.message.chat.id not in db_mem:
         db_mem[CallbackQuery.message.chat.id] = {}
     callback_data = CallbackQuery.data.strip()

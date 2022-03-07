@@ -126,8 +126,7 @@ async def admin_risghts(_, CallbackQuery):
             return
         else:
             videoid = Queues.get(chat_id)["file"]
-            got_queue = get_queue.get(CallbackQuery.message.chat.id)
-            if got_queue:
+            if got_queue := get_queue.get(CallbackQuery.message.chat.id):
                 got_queue.pop(0)
             finxx = f"{videoid[0]}{videoid[1]}{videoid[2]}"
             aud = 0
@@ -360,135 +359,132 @@ async def play_playlist(_, CallbackQuery):
                 "Live Streaming Playing...Stop it to play playlist",
                 show_alert=True,
             )
-        else:
-            pass
     except:
         pass
     if not _playlist:
         return await CallbackQuery.answer(
-            f"This User has no playlist on servers.", show_alert=True
+            "This User has no playlist on servers.", show_alert=True
         )
-    else:
-        await CallbackQuery.message.delete()
-        mystic = await CallbackQuery.message.reply_text(
-            f"Starting Playlist Of {third_name}.\n\nRequested By:- {CallbackQuery.from_user.first_name}"
-        )
-        msg = f"Queued Playlist:\n\n"
-        j = 0
-        for_t = 0
-        for_p = 0
-        for yins in _playlist:
-            _note = await get_playlist(user_id, yins, type)
-            title = _note["title"]
-            videoid = _note["videoid"]
-            url = f"https://www.youtube.com/watch?v={videoid}"
-            duration = _note["duration"]
-            if await is_active_chat(chat_id):
-                position = await Queues.put(chat_id, file=videoid)
-                j += 1
-                for_p = 1
-                msg += f"{j}- {title[:50]}\n"
-                msg += f"Queued Position- {position}\n\n"
-                if videoid not in db_mem:
-                    db_mem[videoid] = {}
-                db_mem[videoid]["username"] = CallbackQuery.from_user.mention
-                db_mem[videoid]["chat_title"] = chat_title
-                db_mem[videoid]["user_id"] = user_id
-                got_queue = get_queue.get(CallbackQuery.message.chat.id)
-                title = title
-                user = CallbackQuery.from_user.first_name
-                duration = duration
-                to_append = [title, user, duration]
-                got_queue.append(to_append)
-            else:
-                loop = asyncio.get_event_loop()
-                send_video = videoid
-                for_t = 1
-                (
-                    title,
-                    duration_min,
-                    duration_sec,
-                    thumbnail,
-                ) = get_yt_info_id(videoid)
-                mystic = await mystic.edit(
-                    f"**{MUSIC_BOT_NAME} Downloader**\n\n**Title:** {title[:50]}\n\n0% ▓▓▓▓▓▓▓▓▓▓▓▓ 100%"
-                )
-                downloaded_file = await loop.run_in_executor(
-                    None, download, videoid, mystic, title
-                )
-                raw_path = await convert(downloaded_file)
-                if not await join_stream(chat_id, raw_path):
-                    return await mystic.edit(
-                        "Error Joining Voice Chat. Make sure Voice Chat is Enabled."
-                    )
-                theme = await check_theme(chat_id)
-                chat_title = await specialfont_to_normal(chat_title)
-                thumb = await gen_thumb(
-                    thumbnail,
-                    title,
-                    CallbackQuery.from_user.id,
-                    theme,
-                    chat_title,
-                )
-                buttons = primary_markup(
-                    videoid,
-                    CallbackQuery.from_user.id,
-                    duration_min,
-                    duration_min,
-                )
-                await mystic.delete()
-                get_queue[CallbackQuery.message.chat.id] = []
-                got_queue = get_queue.get(CallbackQuery.message.chat.id)
-                title = title
-                user = CallbackQuery.from_user.first_name
-                duration = duration_min
-                to_append = [title, user, duration]
-                got_queue.append(to_append)
-                await music_on(chat_id)
-                await add_active_chat(chat_id)
-                cap = f"🎥<b>__Playing:__ </b>[{title[:25]}](https://www.youtube.com/watch?v={videoid}) \n💡<b>__Info:__</b> [Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n👤**__Requested by:__** {CallbackQuery.from_user.mention}"
-                final_output = await CallbackQuery.message.reply_photo(
-                    photo=thumb,
-                    reply_markup=InlineKeyboardMarkup(buttons),
-                    caption=cap,
-                )
-                os.remove(thumb)
-        await mystic.delete()
-        if for_p == 1:
-            m = await CallbackQuery.message.reply_text(
-                "Pasting Queued Playlist to Bin"
-            )
-            link = await paste_queue(msg)
-            preview = link + "/preview.png"
-            url = link + "/index.txt"
-            buttons = paste_queue_markup(url)
-            if await isPreviewUp(preview):
-                await CallbackQuery.message.reply_photo(
-                    photo=preview,
-                    caption=f"This is Queued Playlist of {third_name}.\n\nPlayed by :- {CallbackQuery.from_user.mention}",
-                    quote=False,
-                    reply_markup=InlineKeyboardMarkup(buttons),
-                )
-                await m.delete()
-            else:
-                await CallbackQuery.message.reply_text(
-                    text=msg, reply_markup=audio_markup2
-                )
-                await m.delete()
+
+    await CallbackQuery.message.delete()
+    mystic = await CallbackQuery.message.reply_text(
+        f"Starting Playlist Of {third_name}.\n\nRequested By:- {CallbackQuery.from_user.first_name}"
+    )
+    msg = "Queued Playlist:\\n\\n"
+    j = 0
+    for_t = 0
+    for_p = 0
+    for yins in _playlist:
+        _note = await get_playlist(user_id, yins, type)
+        title = _note["title"]
+        videoid = _note["videoid"]
+        url = f"https://www.youtube.com/watch?v={videoid}"
+        duration = _note["duration"]
+        if await is_active_chat(chat_id):
+            position = await Queues.put(chat_id, file=videoid)
+            j += 1
+            for_p = 1
+            msg += f"{j}- {title[:50]}\n"
+            msg += f"Queued Position- {position}\n\n"
+            if videoid not in db_mem:
+                db_mem[videoid] = {}
+            db_mem[videoid]["username"] = CallbackQuery.from_user.mention
+            db_mem[videoid]["chat_title"] = chat_title
+            db_mem[videoid]["user_id"] = user_id
+            got_queue = get_queue.get(CallbackQuery.message.chat.id)
+            title = title
+            user = CallbackQuery.from_user.first_name
+            duration = duration
+            to_append = [title, user, duration]
+            got_queue.append(to_append)
         else:
-            await CallbackQuery.message.reply_text(
-                "Only 1 Music in Playlist.. No more music to add in queue."
-            )
-        if for_t == 1:
-            await start_timer(
-                send_video,
+            loop = asyncio.get_event_loop()
+            send_video = videoid
+            for_t = 1
+            (
+                title,
                 duration_min,
                 duration_sec,
-                final_output,
-                CallbackQuery.message.chat.id,
-                CallbackQuery.message.from_user.id,
-                0,
+                thumbnail,
+            ) = get_yt_info_id(videoid)
+            mystic = await mystic.edit(
+                f"**{MUSIC_BOT_NAME} Downloader**\n\n**Title:** {title[:50]}\n\n0% ▓▓▓▓▓▓▓▓▓▓▓▓ 100%"
             )
+            downloaded_file = await loop.run_in_executor(
+                None, download, videoid, mystic, title
+            )
+            raw_path = await convert(downloaded_file)
+            if not await join_stream(chat_id, raw_path):
+                return await mystic.edit(
+                    "Error Joining Voice Chat. Make sure Voice Chat is Enabled."
+                )
+            theme = await check_theme(chat_id)
+            chat_title = await specialfont_to_normal(chat_title)
+            thumb = await gen_thumb(
+                thumbnail,
+                title,
+                CallbackQuery.from_user.id,
+                theme,
+                chat_title,
+            )
+            buttons = primary_markup(
+                videoid,
+                CallbackQuery.from_user.id,
+                duration_min,
+                duration_min,
+            )
+            await mystic.delete()
+            get_queue[CallbackQuery.message.chat.id] = []
+            got_queue = get_queue.get(CallbackQuery.message.chat.id)
+            title = title
+            user = CallbackQuery.from_user.first_name
+            duration = duration_min
+            to_append = [title, user, duration]
+            got_queue.append(to_append)
+            await music_on(chat_id)
+            await add_active_chat(chat_id)
+            cap = f"🎥<b>__Playing:__ </b>[{title[:25]}](https://www.youtube.com/watch?v={videoid}) \n💡<b>__Info:__</b> [Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n👤**__Requested by:__** {CallbackQuery.from_user.mention}"
+            final_output = await CallbackQuery.message.reply_photo(
+                photo=thumb,
+                reply_markup=InlineKeyboardMarkup(buttons),
+                caption=cap,
+            )
+            os.remove(thumb)
+    await mystic.delete()
+    if for_p == 1:
+        m = await CallbackQuery.message.reply_text(
+            "Pasting Queued Playlist to Bin"
+        )
+        link = await paste_queue(msg)
+        preview = f'{link}/preview.png'
+        url = f'{link}/index.txt'
+        buttons = paste_queue_markup(url)
+        if await isPreviewUp(preview):
+            await CallbackQuery.message.reply_photo(
+                photo=preview,
+                caption=f"This is Queued Playlist of {third_name}.\n\nPlayed by :- {CallbackQuery.from_user.mention}",
+                quote=False,
+                reply_markup=InlineKeyboardMarkup(buttons),
+            )
+        else:
+            await CallbackQuery.message.reply_text(
+                text=msg, reply_markup=audio_markup2
+            )
+        await m.delete()
+    else:
+        await CallbackQuery.message.reply_text(
+            "Only 1 Music in Playlist.. No more music to add in queue."
+        )
+    if for_t == 1:
+        await start_timer(
+            send_video,
+            duration_min,
+            duration_sec,
+            final_output,
+            CallbackQuery.message.chat.id,
+            CallbackQuery.message.from_user.id,
+            0,
+        )
 
 
 @app.on_callback_query(filters.regex("add_playlist"))
@@ -515,9 +511,7 @@ async def group_playlist(_, CallbackQuery):
         )
         await asyncio.sleep(2)
         await sex.delete()
-        count = len(_count)
-    else:
-        count = len(_count)
+    count = len(_count)
     count = int(count)
     if count == 50:
         return await CallbackQuery.answer(

@@ -47,9 +47,7 @@ __HELP__ = """
 @app.on_message(filters.new_chat_members, group=welcome_group)
 async def welcome(_, message: Message):
     chat_id = message.chat.id
-    if await is_served_chat(chat_id):
-        pass
-    else:
+    if not await is_served_chat(chat_id):
         await add_served_chat(chat_id)
     for member in message.new_chat_members:
         try:
@@ -227,10 +225,7 @@ async def start_markup_check(_, CallbackQuery):
         await CallbackQuery.answer("Bot Settings ...")
         text, buttons = usermarkup()
         is_non_admin = await is_nonadmin_chat(chat_id)
-        if not is_non_admin:
-            current = "Admins Only"
-        else:
-            current = "Everyone"
+        current = "Admins Only" if not is_non_admin else "Everyone"
         await CallbackQuery.edit_message_text(
             text=f"{text}\n\n**Group:** {c_title}\n\nCurrently Who Can Use {MUSIC_BOT_NAME}:- **{current}**\n\n**⁉️ What is This?**\n\n**👥 Everyone :-**Anyone can use {MUSIC_BOT_NAME}'s commands(skip, pause, resume etc) present in this group.\n\n**🙍 Admin Only :-**  Only the admins and authorized users can use all commands of {MUSIC_BOT_NAME}.",
             reply_markup=InlineKeyboardMarkup(buttons),
@@ -458,31 +453,30 @@ async def start_markup_check(_, CallbackQuery):
                 text=f"{text}\n\nNo Authorized Users Found\n\nYou can allow any non-admin to use my admin commands by /auth and delete by using /unauth",
                 reply_markup=InlineKeyboardMarkup(buttons),
             )
-        else:
-            j = 0
-            await CallbackQuery.edit_message_text(
-                "Fetching Authorised Users... Please Wait"
+        j = 0
+        await CallbackQuery.edit_message_text(
+            "Fetching Authorised Users... Please Wait"
+        )
+        msg = "**Authorised Users List[AUL]:**\\n\\n"
+        for note in _playlist:
+            _note = await get_authuser(
+                CallbackQuery.message.chat.id, note
             )
-            msg = f"**Authorised Users List[AUL]:**\n\n"
-            for note in _playlist:
-                _note = await get_authuser(
-                    CallbackQuery.message.chat.id, note
-                )
-                user_id = _note["auth_user_id"]
-                user_name = _note["auth_name"]
-                admin_id = _note["admin_id"]
-                admin_name = _note["admin_name"]
-                try:
-                    user = await app.get_users(user_id)
-                    user = user.first_name
-                    j += 1
-                except Exception:
-                    continue
-                msg += f"{j}➤ {user}[`{user_id}`]\n"
-                msg += f"    ┗ Added By:- {admin_name}[`{admin_id}`]\n\n"
-            await CallbackQuery.edit_message_text(
-                msg, reply_markup=InlineKeyboardMarkup(buttons)
-            )
+            user_id = _note["auth_user_id"]
+            user_name = _note["auth_name"]
+            admin_id = _note["admin_id"]
+            admin_name = _note["admin_name"]
+            try:
+                user = await app.get_users(user_id)
+                user = user.first_name
+                j += 1
+            except Exception:
+                continue
+            msg += f"{j}➤ {user}[`{user_id}`]\n"
+            msg += f"    ┗ Added By:- {admin_name}[`{admin_id}`]\n\n"
+        await CallbackQuery.edit_message_text(
+            msg, reply_markup=InlineKeyboardMarkup(buttons)
+        )
     if command == "UPT":
         bot_uptimee = int(time.time() - bot_start_time)
         Uptimeee = f"{get_readable_time((bot_uptimee))}"

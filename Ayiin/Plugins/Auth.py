@@ -45,9 +45,7 @@ async def auth(_, message: Message):
         from_user_name = message.from_user.first_name
         from_user_id = message.from_user.id
         _check = await get_authuser_names(message.chat.id)
-        count = 0
-        for smex in _check:
-            count += 1
+        count = sum(1 for _ in _check)
         if int(count) == 20:
             return await message.reply_text(
                 "You can only have 20 Users In Your Groups Authorised Users List (AUL)"
@@ -60,12 +58,10 @@ async def auth(_, message: Message):
                 "admin_name": from_user_name,
             }
             await save_authuser(message.chat.id, token, assis)
-            await message.reply_text(
-                f"Added to Authorised Users List of this group."
-            )
+            await message.reply_text("Added to Authorised Users List of this group.")
             return
         else:
-            await message.reply_text(f"Already in the Authorised Users List.")
+            await message.reply_text("Already in the Authorised Users List.")
         return
     from_user_id = message.from_user.id
     user_id = message.reply_to_message.from_user.id
@@ -73,9 +69,7 @@ async def auth(_, message: Message):
     token = await int_to_alpha(user_id)
     from_user_name = message.from_user.first_name
     _check = await get_authuser_names(message.chat.id)
-    count = 0
-    for smex in _check:
-        count += 1
+    count = sum(1 for _ in _check)
     if int(count) == 20:
         return await message.reply_text(
             "You can only have 20 Users In Your Groups Authorised Users List (AUL)"
@@ -88,12 +82,10 @@ async def auth(_, message: Message):
             "admin_name": from_user_name,
         }
         await save_authuser(message.chat.id, token, assis)
-        await message.reply_text(
-            f"Added to Authorised Users List of this group."
-        )
+        await message.reply_text("Added to Authorised Users List of this group.")
         return
     else:
-        await message.reply_text(f"Already in the Authorised Users List.")
+        await message.reply_text("Already in the Authorised Users List.")
 
 
 @app.on_message(filters.command("unauth") & filters.group)
@@ -113,19 +105,21 @@ async def whitelist_chat_func(_, message: Message):
         deleted = await delete_authuser(message.chat.id, token)
         if deleted:
             return await message.reply_text(
-                f"Removed from Authorised Users List of this Group."
+                "Removed from Authorised Users List of this Group."
             )
+
         else:
-            return await message.reply_text(f"Not an Authorised User.")
+            return await message.reply_text("Not an Authorised User.")
     user_id = message.reply_to_message.from_user.id
     token = await int_to_alpha(user_id)
     deleted = await delete_authuser(message.chat.id, token)
     if deleted:
         return await message.reply_text(
-            f"Removed from Authorised Users List of this Group."
+            "Removed from Authorised Users List of this Group."
         )
+
     else:
-        return await message.reply_text(f"Not an Authorised User.")
+        return await message.reply_text("Not an Authorised User.")
 
 
 @app.on_message(filters.command("authusers") & filters.group)
@@ -133,26 +127,26 @@ async def authusers(_, message: Message):
     _playlist = await get_authuser_names(message.chat.id)
     if not _playlist:
         return await message.reply_text(
-            f"No Authorised Users in this Group.\n\nAdd Auth users by /auth and remove by /unauth."
+            "No Authorised Users in this Group.\\n\\nAdd Auth users by /auth and remove by /unauth."
         )
-    else:
-        j = 0
-        m = await message.reply_text(
-            "Fetching Authorised Users... Please Wait"
-        )
-        msg = f"**Authorised Users List[AUL]:**\n\n"
-        for note in _playlist:
-            _note = await get_authuser(message.chat.id, note)
-            user_id = _note["auth_user_id"]
-            user_name = _note["auth_name"]
-            admin_id = _note["admin_id"]
-            admin_name = _note["admin_name"]
-            try:
-                user = await app.get_users(user_id)
-                user = user.first_name
-                j += 1
-            except Exception:
-                continue
-            msg += f"{j}➤ {user}[`{user_id}`]\n"
-            msg += f"    ┗ Added By:- {admin_name}[`{admin_id}`]\n\n"
-        await m.edit_text(msg)
+
+    j = 0
+    m = await message.reply_text(
+        "Fetching Authorised Users... Please Wait"
+    )
+    msg = "**Authorised Users List[AUL]:**\\n\\n"
+    for note in _playlist:
+        _note = await get_authuser(message.chat.id, note)
+        user_id = _note["auth_user_id"]
+        user_name = _note["auth_name"]
+        admin_id = _note["admin_id"]
+        admin_name = _note["admin_name"]
+        try:
+            user = await app.get_users(user_id)
+            user = user.first_name
+            j += 1
+        except Exception:
+            continue
+        msg += f"{j}➤ {user}[`{user_id}`]\n"
+        msg += f"    ┗ Added By:- {admin_name}[`{admin_id}`]\n\n"
+    await m.edit_text(msg)

@@ -69,8 +69,6 @@ async def play(_, message: Message):
                 return await mystic.edit(
                     "Live Streaming Playing...Stop it to play music"
                 )
-            else:
-                pass
         except:
             pass
         if audio.file_size > 1073741824:
@@ -114,13 +112,12 @@ async def play(_, message: Message):
                 "**No Limit Defined for Video Calls**\n\nSet a Limit for Number of Maximum Video Calls allowed on Bot by /set_video_limit [Sudo Users Only]"
             )
         count = len(await get_active_video_chats())
-        if int(count) == int(limit):
-            if await is_active_video_chat(message.chat.id):
-                pass
-            else:
-                return await message.reply_text(
-                    "Sorry! Bot only allows limited number of video calls due to CPU overload issues. Many other chats are using video call right now. Try switching to audio or try again later"
-                )
+        if int(count) == int(limit) and not await is_active_video_chat(
+            message.chat.id
+        ):
+            return await message.reply_text(
+                "Sorry! Bot only allows limited number of video calls due to CPU overload issues. Many other chats are using video call right now. Try switching to audio or try again later"
+            )
         mystic = await message.reply_text(
             "🔄 Processing Video... Please Wait!"
         )
@@ -130,8 +127,6 @@ async def play(_, message: Message):
                 return await mystic.edit(
                     "Live Streaming Playing...Stop it to play music"
                 )
-            else:
-                pass
         except:
             pass
         file = await telegram_download(message, mystic)
@@ -205,8 +200,6 @@ async def Music_Stream(_, CallbackQuery):
                 "Live Streaming Playing...Stop it to play music",
                 show_alert=True,
             )
-        else:
-            pass
     except:
         pass
     callback_data = CallbackQuery.data.strip()
@@ -360,10 +353,7 @@ async def slider_query_results(_, CallbackQuery):
     what = str(what)
     type = int(type)
     if what == "F":
-        if type == 9:
-            query_type = 0
-        else:
-            query_type = int(type + 1)
+        query_type = 0 if type == 9 else int(type + 1)
         await CallbackQuery.answer()
         (
             title,
@@ -383,10 +373,7 @@ async def slider_query_results(_, CallbackQuery):
             media=med, reply_markup=InlineKeyboardMarkup(buttons)
         )
     if what == "B":
-        if type == 0:
-            query_type = 9
-        else:
-            query_type = int(type - 1)
+        query_type = 9 if type == 0 else int(type - 1)
         await CallbackQuery.answer()
         (
             title,

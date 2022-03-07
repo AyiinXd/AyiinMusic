@@ -66,7 +66,4 @@ else:
     )
 
 
-if not LOG_SESSION:
-    LOG_CLIENT = None
-else:
-    LOG_CLIENT = Client(LOG_SESSION, API_ID, API_HASH)
+LOG_CLIENT = None if not LOG_SESSION else Client(LOG_SESSION, API_ID, API_HASH)

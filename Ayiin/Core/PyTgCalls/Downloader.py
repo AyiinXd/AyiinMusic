@@ -29,9 +29,7 @@ def download(videoid: str, mystic, title) -> str:
             speed = d["_speed_str"]
             size = d["_total_bytes_str"]
             bytesx = d["total_bytes"]
-            if str(bytesx) in flex:
-                pass
-            else:
+            if str(bytesx) not in flex:
                 flex[str(bytesx)] = 1
             if flex[str(bytesx)] == 1:
                 flex[str(bytesx)] += 1
@@ -42,27 +40,24 @@ def download(videoid: str, mystic, title) -> str:
                         )
                 except Exception as e:
                     pass
-            if per > 250:
-                if flex[str(bytesx)] == 2:
-                    flex[str(bytesx)] += 1
-                    if eta > 2:
-                        mystic.edit(
-                            f"**{MUSIC_BOT_NAME}Downloader**\n\n**Title:** {title[:50]}:\n**FileSize:** {size}\n\n**<u>Downloaded:</u>**\n**Speed:** {speed}\n**ETA:** {eta} Seconds\n\n\n{percentage} ███▓▓▓▓▓▓▓▓▓ 100%"
-                        )
-            if per > 500:
-                if flex[str(bytesx)] == 3:
-                    flex[str(bytesx)] += 1
-                    if eta > 2:
-                        mystic.edit(
-                            f"**{MUSIC_BOT_NAME} Downloader**\n\n**Title:** {title[:50]}:\n**FileSize:** {size}\n\n**<u>Downloaded:</u>**\n**Speed:** {speed}\n**ETA:** {eta} Seconds\n\n\n{percentage} ██████▓▓▓▓▓▓ 100%"
-                        )
-            if per > 800:
-                if flex[str(bytesx)] == 4:
-                    flex[str(bytesx)] += 1
-                    if eta > 2:
-                        mystic.edit(
-                            f"**{MUSIC_BOT_NAME} Downloader**\n\n**Title:** {title[:50]}:\n**FileSize:** {size}\n\n**<u>Downloaded:</u>**\n**Speed:** {speed}\n**ETA:** {eta} Seconds\n\n\n{percentage} ██████████▓▓ 100%"
-                        )
+            if per > 250 and flex[str(bytesx)] == 2:
+                flex[str(bytesx)] += 1
+                if eta > 2:
+                    mystic.edit(
+                        f"**{MUSIC_BOT_NAME}Downloader**\n\n**Title:** {title[:50]}:\n**FileSize:** {size}\n\n**<u>Downloaded:</u>**\n**Speed:** {speed}\n**ETA:** {eta} Seconds\n\n\n{percentage} ███▓▓▓▓▓▓▓▓▓ 100%"
+                    )
+            if per > 500 and flex[str(bytesx)] == 3:
+                flex[str(bytesx)] += 1
+                if eta > 2:
+                    mystic.edit(
+                        f"**{MUSIC_BOT_NAME} Downloader**\n\n**Title:** {title[:50]}:\n**FileSize:** {size}\n\n**<u>Downloaded:</u>**\n**Speed:** {speed}\n**ETA:** {eta} Seconds\n\n\n{percentage} ██████▓▓▓▓▓▓ 100%"
+                    )
+            if per > 800 and flex[str(bytesx)] == 4:
+                flex[str(bytesx)] += 1
+                if eta > 2:
+                    mystic.edit(
+                        f"**{MUSIC_BOT_NAME} Downloader**\n\n**Title:** {title[:50]}:\n**FileSize:** {size}\n\n**<u>Downloaded:</u>**\n**Speed:** {speed}\n**ETA:** {eta} Seconds\n\n\n{percentage} ██████████▓▓ 100%"
+                    )
         if d["status"] == "finished":
             try:
                 taken = d["_elapsed_str"]

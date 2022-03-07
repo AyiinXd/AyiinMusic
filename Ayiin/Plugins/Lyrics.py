@@ -69,10 +69,9 @@ async def lyricssex(_, CallbackQuery):
         with open(filename, "w+", encoding="utf8") as out_file:
             out_file.write(str(xxx.strip()))
         await CallbackQuery.message.reply_document(
-            document=filename,
-            caption=f"**OUTPUT:**\n\n`Lyrics`",
-            quote=False,
+            document=filename, caption="**OUTPUT:**\\n\\n`Lyrics`", quote=False
         )
+
         os.remove(filename)
     else:
         await CallbackQuery.message.reply_text(xxx)
@@ -106,10 +105,9 @@ async def lrsearch(_, message: Message):
         with open(filename, "w+", encoding="utf8") as out_file:
             out_file.write(str(xxx.strip()))
         await message.reply_document(
-            document=filename,
-            caption=f"**OUTPUT:**\n\n`Lyrics`",
-            quote=False,
+            document=filename, caption="**OUTPUT:**\\n\\n`Lyrics`", quote=False
         )
+
         os.remove(filename)
     else:
         await m.edit(xxx)

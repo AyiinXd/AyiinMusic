@@ -22,19 +22,18 @@ async def unban_assistant_(_, CallbackQuery):
             "I am not having ban/unban user permission. Ask any admin to unban the assistant.",
             show_alert=True,
         )
-    else:
-        try:
-            await app.unban_chat_member(
-                CallbackQuery.message.chat.id, user_id
-            )
-        except:
-            return await CallbackQuery.answer(
-                "Failed to unban",
-                show_alert=True,
-            )
-        return await CallbackQuery.edit_message_text(
-            "Assistant Unbanned. Try Playing Now."
+    try:
+        await app.unban_chat_member(
+            CallbackQuery.message.chat.id, user_id
         )
+    except:
+        return await CallbackQuery.answer(
+            "Failed to unban",
+            show_alert=True,
+        )
+    return await CallbackQuery.edit_message_text(
+        "Assistant Unbanned. Try Playing Now."
+    )
 
 
 def AssistantAdd(mystic):

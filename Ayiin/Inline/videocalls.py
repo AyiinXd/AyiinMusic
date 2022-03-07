@@ -3,7 +3,7 @@ from pyrogram.types import (CallbackQuery, InlineKeyboardButton,
 
 
 def choose_markup(videoid, duration, user_id):
-    buttons = [
+    return [
         [
             InlineKeyboardButton(
                 text="⍟ 𝙼𝚄𝚂𝙸𝙲 ⍟",
@@ -21,11 +21,10 @@ def choose_markup(videoid, duration, user_id):
             )
         ],
     ]
-    return buttons
 
 
 def livestream_markup(quality, videoid, duration, user_id):
-    buttons = [
+    return [
         [
             InlineKeyboardButton(
                 text="⍟ 𝙻𝙸𝚅𝙴 ⍟",
@@ -37,11 +36,10 @@ def livestream_markup(quality, videoid, duration, user_id):
             ),
         ],
     ]
-    return buttons
 
 
 def stream_quality_markup(videoid, duration, user_id):
-    buttons = [
+    return [
         [
             InlineKeyboardButton(
                 text="📽 360P",
@@ -67,4 +65,3 @@ def stream_quality_markup(videoid, duration, user_id):
             ),
         ],
     ]
-    return buttons

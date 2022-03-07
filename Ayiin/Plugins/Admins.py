@@ -71,7 +71,7 @@ Only for Sudo Users
 @checker
 async def admins(_, message: Message):
     global get_queue
-    if not len(message.command) == 1:
+    if len(message.command) != 1:
         return await message.reply_text("Error! Wrong Usage of Command.")
     if not await is_active_chat(message.chat.id):
         return await message.reply_text("Nothing is playing on voice chat.")
@@ -92,7 +92,7 @@ async def admins(_, message: Message):
         await message.reply_text(
             f"🎧 Voicechat Resumed by {message.from_user.mention}!"
         )
-    if message.command[0][1] == "t" or message.command[0][1] == "n":
+    if message.command[0][1] in ["t", "n"]:
         if message.chat.id not in db_mem:
             db_mem[message.chat.id] = {}
         wtfbro = db_mem[message.chat.id]
@@ -123,8 +123,7 @@ async def admins(_, message: Message):
             return
         else:
             videoid = Queues.get(chat_id)["file"]
-            got_queue = get_queue.get(chat_id)
-            if got_queue:
+            if got_queue := get_queue.get(chat_id):
                 got_queue.pop(0)
             finxx = f"{videoid[0]}{videoid[1]}{videoid[2]}"
             aud = 0

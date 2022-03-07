@@ -76,7 +76,6 @@ async def play_playlist_cmd(_, message):
                 ),
                 reply_markup=InlineKeyboardMarkup(buttons),
             )
-            return
         else:
             user_id = message.from_user.id
             user_name = message.from_user.first_name
@@ -88,7 +87,6 @@ async def play_playlist_cmd(_, message):
                 ),
                 reply_markup=InlineKeyboardMarkup(buttons),
             )
-            return
     else:
         userid = message.reply_to_message.from_user.id
         third_name = message.reply_to_message.from_user.first_name
@@ -104,7 +102,8 @@ async def play_playlist_cmd(_, message):
             ),
             reply_markup=InlineKeyboardMarkup(buttons),
         )
-        return
+
+    return
 
 
 @app.on_message(filters.command("playlist") & filters.group)
