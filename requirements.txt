@@ -3,7 +3,7 @@ aiofiles
 asyncio
 ffmpeg-python
 pillow
-pyrogram==1.4.12
+pyrogram==1.4.16
 hachoir
 lyricsgenius
 py-tgcalls
