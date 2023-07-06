@@ -17,7 +17,7 @@ psutil
 requests
 rich
 dnspython
-yt-dlp==2021.11.10.1
+yt-dlp==2023.7.6
 tgcrypto
 gitpython
 heroku3
